@@ -1,12 +1,12 @@
 {
   "weekTab": "April 20",
-  "updatedAt": "2026-04-20T07:11:05.553Z",
+  "updatedAt": "2026-04-20T13:49:48.389Z",
   "contractors": [
     {
       "userId": "947893757758566421",
       "username": "heyjosephhere",
-      "invoiced": false,
-      "invoiceAmount": null,
+      "invoiced": true,
+      "invoiceAmount": 160,
       "estimateMin": 280,
       "estimateMax": 280
     }
