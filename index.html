@@ -337,13 +337,6 @@
     }
   }
 
-  function accountLabel(c) {
-    const parts = [];
-    if (c.freedomAccounts > 0) parts.push(`${c.freedomAccounts}x Freedom`);
-    if (c.achieveAccounts > 0) parts.push(`${c.achieveAccounts}x Achieve`);
-    return parts.join(', ') || 'No accounts set';
-  }
-
   function renderCards(containerId, emptyId, contractors, isSubmitted) {
     const container = document.getElementById(containerId);
     const empty     = document.getElementById(emptyId);
@@ -365,12 +358,12 @@
 
       const subText = isSubmitted
         ? `$${c.invoiceAmount} submitted`
-        : estimateStr ? `Est. ${estimateStr} · ${accountLabel(c)}` : accountLabel(c);
+        : estimateStr ? `Est. ${estimateStr}` : '';
 
       card.innerHTML = `
         <div class="info">
           <div class="username">${escapeHtml(c.username)}</div>
-          <div class="sub">${subText}</div>
+          ${subText ? `<div class="sub">${subText}</div>` : ''}
         </div>
         <div class="badge ${isSubmitted ? 'submitted' : 'pending'}">
           ${isSubmitted ? 'Submitted' : 'Pending'}
