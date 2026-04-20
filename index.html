@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Invoice Tracker</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0a0a0a;
+      --surface:   #111111;
+      --border:    #1e1e1e;
+      --orange:    #ff6314;
+      --orange-dim:#c44a0a;
+      --text:      #e8e8e8;
+      --muted:     #555;
+      --green:     #22c55e;
+      --red:       #ef4444;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      min-height: 100vh;
+    }
+
+    /* ── LOGIN ── */
+    #login-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      gap: 24px;
+    }
+
+    #login-screen h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: -0.5px;
+    }
+
+    #login-screen p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .login-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      width: 100%;
+      max-width: 360px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .login-box input {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 15px;
+      padding: 12px 14px;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    .login-box input:focus { border-color: var(--orange); }
+
+    .login-box button {
+      background: var(--orange);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 12px;
+      transition: background 0.2s;
+    }
+
+    .login-box button:hover { background: var(--orange-dim); }
+
+    #login-error {
+      color: var(--red);
+      font-size: 13px;
+      text-align: center;
+      display: none;
+    }
+
+    /* ── DASHBOARD ── */
+    #dashboard { display: none; }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header h1 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--orange);
+    }
+
+    header .meta {
+      font-size: 12px;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .stats-bar {
+      display: flex;
+      gap: 16px;
+      padding: 20px 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 20px;
+      flex: 1;
+    }
+
+    .stat .label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .stat .value {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .stat .value.orange { color: var(--orange); }
+    .stat .value.green  { color: var(--green); }
+    .stat .value.red    { color: var(--red); }
+
+    .section {
+      padding: 24px 32px;
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .card.submitted  { border-left: 3px solid var(--green); }
+    .card.pending    { border-left: 3px solid var(--orange); }
+
+    .card .info { flex: 1; min-width: 0; }
+
+    .card .username {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card .sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    .badge {
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .badge.submitted {
+      background: rgba(34,197,94,0.12);
+      color: var(--green);
+    }
+
+    .badge.pending {
+      background: rgba(255,99,20,0.12);
+      color: var(--orange);
+    }
+
+    .refresh-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 13px;
+      padding: 6px 14px;
+      transition: all 0.2s;
+    }
+
+    .refresh-btn:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+
+    .empty {
+      color: var(--muted);
+      font-size: 14px;
+      padding: 12px 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <h1>Invoice Tracker</h1>
+  <p>Enter the password to view invoice status</p>
+  <div class="login-box">
+    <input type="password" id="password-input" placeholder="Password" autocomplete="current-password"/>
+    <button onclick="login()">Sign in</button>
+    <div id="login-error">Incorrect password. Try again.</div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard">
+  <header>
+    <h1>Invoice Tracker</h1>
+    <div class="meta">
+      <div id="week-label"></div>
+      <div id="updated-label"></div>
+    </div>
+    <button class="refresh-btn" onclick="loadDashboard()">Refresh</button>
+  </header>
+
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="label">Total contractors</div>
+      <div class="value orange" id="stat-total">—</div>
+    </div>
+    <div class="stat">
+      <div class="label">Invoices submitted</div>
+      <div class="value green" id="stat-submitted">—</div>
+    </div>
+    <div class="stat">
+      <div class="label">Still pending</div>
+      <div class="value red" id="stat-pending">—</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Pending</div>
+    <div class="cards" id="pending-cards"></div>
+    <div class="empty" id="pending-empty" style="display:none">Everyone has submitted!</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Submitted</div>
+    <div class="cards" id="submitted-cards"></div>
+    <div class="empty" id="submitted-empty" style="display:none">No invoices submitted yet.</div>
+  </div>
+</div>
+
+<script>
+  const PASSWORD   = 'RedditWorkers101';
+  const GITHUB_RAW = 'https://raw.githubusercontent.com/OhWowItsJoey/invoice-bot/main/dashboard.json';
+
+  function login() {
+    const val = document.getElementById('password-input').value;
+    if (val === PASSWORD) {
+      sessionStorage.setItem('authed', '1');
+      document.getElementById('login-screen').style.display  = 'none';
+      document.getElementById('dashboard').style.display     = 'block';
+      loadDashboard();
+    } else {
+      document.getElementById('login-error').style.display = 'block';
+    }
+  }
+
+  document.getElementById('password-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') login();
+  });
+
+  async function loadDashboard() {
+    try {
+      const res  = await fetch(GITHUB_RAW + '?t=' + Date.now());
+      const data = await res.json();
+
+      document.getElementById('week-label').textContent    = `Week: ${data.weekTab}`;
+      document.getElementById('updated-label').textContent = `Updated: ${new Date(data.updatedAt).toLocaleString()}`;
+
+      const submitted = data.contractors.filter(c => c.invoiced);
+      const pending   = data.contractors.filter(c => !c.invoiced);
+
+      document.getElementById('stat-total').textContent     = data.contractors.length;
+      document.getElementById('stat-submitted').textContent = submitted.length;
+      document.getElementById('stat-pending').textContent   = pending.length;
+
+      renderCards('pending-cards',   'pending-empty',   pending,   false);
+      renderCards('submitted-cards', 'submitted-empty', submitted, true);
+    } catch (err) {
+      console.error('Failed to load dashboard:', err);
+    }
+  }
+
+  function accountLabel(c) {
+    const parts = [];
+    if (c.freedomAccounts > 0) parts.push(`${c.freedomAccounts}x Freedom`);
+    if (c.achieveAccounts > 0) parts.push(`${c.achieveAccounts}x Achieve`);
+    return parts.join(', ') || 'No accounts set';
+  }
+
+  function renderCards(containerId, emptyId, contractors, isSubmitted) {
+    const container = document.getElementById(containerId);
+    const empty     = document.getElementById(emptyId);
+    container.innerHTML = '';
+
+    if (contractors.length === 0) {
+      empty.style.display = 'block';
+      return;
+    }
+    empty.style.display = 'none';
+
+    for (const c of contractors) {
+      const card = document.createElement('div');
+      card.className = `card ${isSubmitted ? 'submitted' : 'pending'}`;
+
+      const estimateStr = c.estimateMax > 0
+        ? (c.estimateMin === c.estimateMax ? `~$${c.estimateMin}` : `~$${c.estimateMin}–$${c.estimateMax}`)
+        : '';
+
+      const subText = isSubmitted
+        ? `$${c.invoiceAmount} submitted`
+        : estimateStr ? `Est. ${estimateStr} · ${accountLabel(c)}` : accountLabel(c);
+
+      card.innerHTML = `
+        <div class="info">
+          <div class="username">${escapeHtml(c.username)}</div>
+          <div class="sub">${subText}</div>
+        </div>
+        <div class="badge ${isSubmitted ? 'submitted' : 'pending'}">
+          ${isSubmitted ? 'Submitted' : 'Pending'}
+        </div>
+      `;
+      container.appendChild(card);
+    }
+  }
+
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  // Auto-check auth on load
+  if (sessionStorage.getItem('authed') === '1') {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('dashboard').style.display    = 'block';
+    loadDashboard();
+  }
+</script>
+</body>
+</html>
