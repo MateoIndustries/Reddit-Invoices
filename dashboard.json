@@ -1,14 +1,54 @@
 {
-  "weekTab": "April 20",
-  "updatedAt": "2026-04-27T05:37:47.242Z",
+  "weekTab": "April 27",
+  "updatedAt": "2026-04-27T15:29:40.771Z",
   "contractors": [
     {
       "userId": "947893757758566421",
       "username": "heyjosephhere",
-      "invoiced": true,
-      "invoiceAmount": 160,
+      "invoiced": false,
+      "invoiceAmount": null,
       "estimateMin": 280,
       "estimateMax": 280
+    },
+    {
+      "userId": "136024835607363584",
+      "username": "wappa",
+      "invoiced": false,
+      "invoiceAmount": null,
+      "estimateMin": 40,
+      "estimateMax": 40
+    },
+    {
+      "userId": "796676372037632021",
+      "username": "ballwalker.",
+      "invoiced": false,
+      "invoiceAmount": null,
+      "estimateMin": 480,
+      "estimateMax": 480
+    },
+    {
+      "userId": "1391830621671657615",
+      "username": "aser555_",
+      "invoiced": false,
+      "invoiceAmount": null,
+      "estimateMin": 1600,
+      "estimateMax": 1600
+    },
+    {
+      "userId": "797714675563364422",
+      "username": "master20219965",
+      "invoiced": false,
+      "invoiceAmount": null,
+      "estimateMin": 240,
+      "estimateMax": 240
+    },
+    {
+      "userId": "334185433380683778",
+      "username": "anaisabellar",
+      "invoiced": false,
+      "invoiceAmount": null,
+      "estimateMin": 440,
+      "estimateMax": 440
     }
   ]
 }
