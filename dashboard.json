@@ -1,6 +1,6 @@
 {
   "weekTab": "April 27",
-  "updatedAt": "2026-04-28T23:01:42.152Z",
+  "updatedAt": "2026-04-28T23:38:22.105Z",
   "contractors": [
     {
       "userId": "947893757758566421",
@@ -33,8 +33,8 @@
     {
       "userId": "797714675563364422",
       "username": "master20219965",
-      "invoiced": false,
-      "invoiceAmount": null,
+      "invoiced": true,
+      "invoiceAmount": 370,
       "estimate": 240
     },
     {
