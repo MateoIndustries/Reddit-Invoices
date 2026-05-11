@@ -1,6 +1,6 @@
 {
   "weekTab": "May 11",
-  "updatedAt": "2026-05-11T17:14:06.800Z",
+  "updatedAt": "2026-05-11T17:23:49.198Z",
   "contractors": [
     {
       "userId": "1391830621671657615",
@@ -61,8 +61,8 @@
     {
       "userId": "348517369171279882",
       "username": "phera.cruz.art",
-      "invoiced": false,
-      "invoiceAmount": null,
+      "invoiced": true,
+      "invoiceAmount": 320,
       "estimate": 320
     },
     {
