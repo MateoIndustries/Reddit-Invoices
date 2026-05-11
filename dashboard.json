@@ -1,76 +1,76 @@
 {
-  "weekTab": "May 4",
-  "updatedAt": "2026-05-11T03:51:53.481Z",
+  "weekTab": "May 11",
+  "updatedAt": "2026-05-11T12:14:31.209Z",
   "contractors": [
     {
-      "userId": "1266759762280972339",
-      "username": "redundantly",
+      "userId": "1391830621671657615",
+      "username": "aser555_",
       "invoiced": true,
-      "invoiceAmount": 80,
-      "estimate": 80
-    },
-    {
-      "userId": "470964053129297941",
-      "username": "drlove3507",
-      "invoiced": true,
-      "invoiceAmount": 160,
-      "estimate": 80
-    },
-    {
-      "userId": "334185433380683778",
-      "username": "anaisabellar",
-      "invoiced": true,
-      "invoiceAmount": 1090,
-      "estimate": 940
+      "invoiceAmount": 1670,
+      "estimate": 1505
     },
     {
       "userId": "796676372037632021",
       "username": "ballwalker.",
       "invoiced": false,
       "invoiceAmount": null,
-      "estimate": 584
-    },
-    {
-      "userId": "735692174100004874",
-      "username": "splater319",
-      "invoiced": true,
-      "invoiceAmount": 330,
-      "estimate": 240
-    },
-    {
-      "userId": "1391830621671657615",
-      "username": "aser555_",
-      "invoiced": true,
-      "invoiceAmount": 1635,
-      "estimate": 1417
-    },
-    {
-      "userId": "947893757758566421",
-      "username": "heyjosephhere",
-      "invoiced": false,
-      "invoiceAmount": null,
-      "estimate": 80
-    },
-    {
-      "userId": "348517369171279882",
-      "username": "phera.cruz.art",
-      "invoiced": false,
-      "invoiceAmount": null,
-      "estimate": 40
-    },
-    {
-      "userId": "788586469051990017",
-      "username": "paulyrod",
-      "invoiced": true,
-      "invoiceAmount": 440,
-      "estimate": 320
+      "estimate": 643
     },
     {
       "userId": "504677128873443368",
       "username": "smackedgod",
       "invoiced": false,
       "invoiceAmount": null,
-      "estimate": 80
+      "estimate": 40
+    },
+    {
+      "userId": "334185433380683778",
+      "username": "anaisabellar",
+      "invoiced": false,
+      "invoiceAmount": null,
+      "estimate": 1211
+    },
+    {
+      "userId": "470964053129297941",
+      "username": "drlove3507",
+      "invoiced": false,
+      "invoiceAmount": null,
+      "estimate": 160
+    },
+    {
+      "userId": "788586469051990017",
+      "username": "paulyrod",
+      "invoiced": false,
+      "invoiceAmount": null,
+      "estimate": 360
+    },
+    {
+      "userId": "735692174100004874",
+      "username": "splater319",
+      "invoiced": false,
+      "invoiceAmount": null,
+      "estimate": 280
+    },
+    {
+      "userId": "1266759762280972339",
+      "username": "redundantly",
+      "invoiced": false,
+      "invoiceAmount": null,
+      "estimate": 40
+    },
+    {
+      "userId": "348517369171279882",
+      "username": "phera.cruz.art",
+      "invoiced": false,
+      "invoiceAmount": null,
+      "estimate": 320
+    },
+    {
+      "userId": "136024835607363584",
+      "username": "wappa",
+      "invoiced": false,
+      "invoiceAmount": null,
+      "estimate": 23
     }
   ]
 }
