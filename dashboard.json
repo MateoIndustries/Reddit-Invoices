@@ -1,76 +1,62 @@
 {
-  "weekTab": "May 11",
-  "updatedAt": "2026-05-17T20:34:31.149Z",
+  "weekTab": "May 18",
+  "updatedAt": "2026-05-18T16:00:55.449Z",
   "contractors": [
     {
       "userId": "1391830621671657615",
       "username": "aser555_",
-      "invoiced": true,
-      "invoiceAmount": 1670,
-      "estimate": 1505
+      "invoiced": false,
+      "invoiceAmount": null,
+      "estimate": 1603
     },
     {
       "userId": "796676372037632021",
       "username": "ballwalker.",
-      "invoiced": true,
-      "invoiceAmount": 1200,
-      "estimate": 643
-    },
-    {
-      "userId": "504677128873443368",
-      "username": "smackedgod",
-      "invoiced": true,
-      "invoiceAmount": 200,
-      "estimate": 40
-    },
-    {
-      "userId": "334185433380683778",
-      "username": "anaisabellar",
-      "invoiced": true,
-      "invoiceAmount": 1220,
-      "estimate": 1211
-    },
-    {
-      "userId": "470964053129297941",
-      "username": "drlove3507",
-      "invoiced": true,
-      "invoiceAmount": 190,
-      "estimate": 160
-    },
-    {
-      "userId": "788586469051990017",
-      "username": "paulyrod",
-      "invoiced": true,
-      "invoiceAmount": 360,
-      "estimate": 360
+      "invoiced": false,
+      "invoiceAmount": null,
+      "estimate": 517
     },
     {
       "userId": "735692174100004874",
       "username": "splater319",
-      "invoiced": true,
-      "invoiceAmount": 360,
-      "estimate": 280
+      "invoiced": false,
+      "invoiceAmount": null,
+      "estimate": 200
+    },
+    {
+      "userId": "334185433380683778",
+      "username": "anaisabellar",
+      "invoiced": false,
+      "invoiceAmount": null,
+      "estimate": 517
+    },
+    {
+      "userId": "788586469051990017",
+      "username": "paulyrod",
+      "invoiced": false,
+      "invoiceAmount": null,
+      "estimate": 40
+    },
+    {
+      "userId": "470964053129297941",
+      "username": "drlove3507",
+      "invoiced": false,
+      "invoiceAmount": null,
+      "estimate": 80
     },
     {
       "userId": "1266759762280972339",
       "username": "redundantly",
-      "invoiced": true,
-      "invoiceAmount": 40,
+      "invoiced": false,
+      "invoiceAmount": null,
       "estimate": 40
     },
     {
-      "userId": "348517369171279882",
-      "username": "phera.cruz.art",
-      "invoiced": true,
-      "invoiceAmount": 320,
-      "estimate": 320
-    },
-    {
-      "userId": "136024835607363584",
-      "username": "wappa",
+      "userId": "138219183392555008",
+      "username": "dystryr",
       "invoiced": false,
       "invoiceAmount": null,
-      "estimate": 23
+      "estimate": 115
     }
   ]
 }
